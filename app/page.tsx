@@ -2,8 +2,8 @@ import React from 'react';
 
 const page = () => {
   return (
-    <div>
-      Hi gyesss
+    <div className='min-h-screen flex justify-center items-center'>
+      Hi gyees. hellow boloo.
     </div>
   );
 };
