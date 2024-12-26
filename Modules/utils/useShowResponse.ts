@@ -11,7 +11,7 @@ interface Tdata{
 const useShowResponse = () => {
     const dispatch=useAppdispatch()
     const responseShow=({data}:{data:Tdata})=>{
-       
+       console.log("hi gyes.")
         dispatch(switchLoading())
         if(data?.statusCode===200||data?.success===true){
             notification(data?.message,"success")

@@ -5,12 +5,13 @@ export const baseApi = createApi({
   reducerPath: "baseApi",
   baseQuery: fetchBaseQuery({
     baseUrl: "http://localhost:5000/api/v1",
+    // baseUrl: "https://front-end-blush-pi.vercel.app/api/v1",
     prepareHeaders: (headers) => {
       if (getToken()) headers.set("Authorization", getToken() as string);
     },
     
   }),
-  tagTypes:["personalInfo","blog"],
+  tagTypes:["personalInfo","blog","project"],
   endpoints: (builder) => {
     return {
       login: builder.mutation({
@@ -50,6 +51,21 @@ export const baseApi = createApi({
         }),
         providesTags:["blog"]
       }),
+      createProject: builder.mutation({
+        query: (payload) => ({
+          url: "all/createProject",
+          method: "POST",
+          body: payload,
+        }),
+        invalidatesTags:["project"]
+      }),
+      allProjects: builder.query({
+        query: () => ({
+          url: "all/project",
+          method: "GET",
+        }),
+        providesTags:["project"]
+      })
     };
   },
 });
@@ -59,5 +75,7 @@ export const {
   usePersonalInfoQuery,
   useUpdatePersonalInfoMutation,
   useCreateBlogMutation,
-  useAllBlogsQuery
+  useAllBlogsQuery,
+  useAllProjectsQuery,
+  useCreateProjectMutation
 } = baseApi;

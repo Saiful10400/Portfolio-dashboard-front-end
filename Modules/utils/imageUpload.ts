@@ -18,7 +18,7 @@ export const imageUploadToDb = async (data:File) => {
     return url.data.url;
   };
   
-  const imageUpload = async (data:File[]) => {
+  const imageUpload = async (data:FileList) => {
     const dataArray = Object.values(data);
     const imageUrls = await Promise.all(dataArray.map(imageUploadToDb));
     return imageUrls
