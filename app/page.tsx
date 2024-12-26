@@ -1,9 +1,11 @@
+import Login from '@/Modules/components/Login';
 import React from 'react';
+import "./style.css"
 
 const page = () => {
   return (
-    <div className='min-h-screen flex justify-center items-center'>
-      Hi gyees. hellow boloo.
+    <div className='login-container flex justify-center items-center min-h-screen'>
+      <Login/>
     </div>
   );
 };
